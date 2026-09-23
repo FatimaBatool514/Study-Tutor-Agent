@@ -12,7 +12,7 @@ from tools import (
 
 def create_study_tutor():
 
-    groq_llm = LLM(
+    llm = LLM(
         model=f"groq/{MODEL_NAME}",
         api_key=GROQ_API_KEY,
         temperature=0.3
@@ -23,21 +23,20 @@ def create_study_tutor():
 
         goal=(
             "Help students understand academic concepts, "
-            "answer questions, create useful explanations, "
-            "and remember important information about their "
-            "learning goals and preferences."
+            "answer questions, provide explanations, "
+            "and remember useful information about "
+            "their learning."
         ),
 
         backstory=(
-            "You are an experienced and patient academic tutor. "
+            "You are a friendly and patient AI study tutor. "
             "You explain difficult concepts in simple language. "
-            "You use examples and analogies when useful. "
             "You adapt explanations to the student's level. "
-            "You provide constructive feedback and encourage "
-            "the student to learn rather than simply giving answers."
+            "You use examples when helpful and encourage "
+            "students to understand concepts."
         ),
 
-        llm=groq_llm,
+        llm=llm,
 
         tools=[
             save_student_memory,
